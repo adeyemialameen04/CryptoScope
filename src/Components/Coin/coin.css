@@ -1,0 +1,43 @@
+.coin {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem;
+  justify-content: space-between;
+  background-color: #26272b;
+  color: white;
+  box-shadow: 0 0 12px #18191b;
+}
+
+.coin>p {
+  /* font-size: 1.1rem; */
+  font-weight: 400;
+}
+
+.coin div {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.coin div h2 {
+  font-weight: 700;
+}
+
+.coin div img {
+  height: 30px;
+}
+
+.show-desktop {
+  display: none;
+}
+
+@media(min-width: 780px) {
+  .coin {
+    padding: 1.5rem;
+  }
+
+  .show-desktop {
+    display: block;
+  }
+}
