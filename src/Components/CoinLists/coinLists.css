@@ -7,16 +7,18 @@
 .coinLists-header {
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding-block: 1rem;
+  padding-inline: .4rem;
   justify-content: space-between;
   background-color: #26272b;
   color: white;
   box-shadow: 0 0 12px #18191b;
+  gap: .5rem;
 }
 
 .coinLists-header>* {
   font-weight: 500;
-  font-size: 1rem;
+  font-size: .9rem;
   text-transform: uppercase;
 }
 
@@ -27,4 +29,15 @@
   border: 1px solid transparent;
   border-radius: 2px;
   outline: none;
+}
+
+
+@media(min-width: 780px) {
+  .coinLists-header {
+    padding: 2rem;
+  }
+
+  .coinLists-header>* {
+    font-size: 1rem;
+  }
 }

@@ -11,7 +11,6 @@ const CoinLists = () => {
     try {
       const response = await axios.get("https://api.coinstats.app/public/v1/coins?skip=0");
       const data = await response?.data?.coins;
-      console.log(data);
       return data;
     } catch (error) {
       console.error(error);
@@ -19,11 +18,10 @@ const CoinLists = () => {
     }
   };
 
-
   const { data: coins, isLoading, isError, error } = useQuery(["coins"], getCoins);
 
   useEffect(() => {
-    getCoins();
+    getNews();
   }, []);
 
   const searchedCoins = coins && coins.filter(coin => {
@@ -76,6 +74,20 @@ const CoinLists = () => {
     );
   }
 
+  const getNews = async () => {
+    try {
+      const currentDate = new Date();
+      const toDate = currentDate.getTime(); // Current timestamp in milliseconds
+      const fromDate = toDate - 24 * 60 * 60 * 1000; // Subtract 24 hours (86400000 milliseconds)
+
+      const response = await axios.get(`https://api.coinstats.app/public/v1/news?skip=0&limit=20&toDate=${toDate}&fromDate=${fromDate}`);
+      const data = await response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <main>
       <div className="container coins__container">
@@ -83,9 +95,10 @@ const CoinLists = () => {
         <div className="coinLists-header">
           <p>#</p>
           <p>Coin</p>
+          <p>Price</p>
           <p>24hr</p>
-          <p>Volume</p>
-          <p>Market Cap</p>
+          <p className="show-desktop">Volume</p>
+          <p className="show-desktop">Market Cap</p>
         </div>
         {
           displayCoins()
