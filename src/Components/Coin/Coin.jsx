@@ -1,8 +1,18 @@
 import "./coin.css";
 
-const Coin = () => {
+const Coin = ({ coin }) => {
   return (
-    <div>Coin</div>
+    <article className="coin">
+      <p>{coin.rank}</p>
+      <div>
+        <img src={coin.icon} alt="" />
+        <h2>{coin.symbol}</h2>
+      </div>
+      <p>${coin.price.toLocaleString()}</p>
+      <p>{coin.priceChange1d}</p>
+      <p className="show-desktop">${coin.volume.toLocaleString()}</p>
+      <p className="show-desktop">${coin.marketCap.toLocaleString()}</p>
+    </article>
   );
 };
 

@@ -1,0 +1,31 @@
+.coins__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.coinLists-header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  /* margin: 2rem 1rem; */
+  justify-content: space-between;
+  background-color: #26272b;
+  color: white;
+  box-shadow: 0 0 12px #18191b;
+}
+
+.coinLists-header>* {
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.search {
+  height: 40px;
+  padding-left: 10px;
+  box-shadow: 0 0 12px #18191b;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  outline: none;
+}
