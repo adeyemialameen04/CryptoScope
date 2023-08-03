@@ -53,6 +53,29 @@ const CoinLists = () => {
     }
   };
 
+  if (isLoading) {
+    return (
+      <h1 className="container" style={{
+        color: "white",
+        fontSize: "1rem",
+        paddingBlock: "1rem",
+        border: "1px solid black",
+        paddingInline: "1rem"
+      }}>Loading...</h1>
+    );
+  }
+  if (isError) {
+    return (
+      <h1 className="container" style={{
+        color: "white",
+        fontSize: "1rem",
+        paddingBlock: "1rem",
+        border: "1px solid black",
+        paddingInline: "1rem"
+      }}>Error fetching coins {error}...</h1>
+    );
+  }
+
   return (
     <main>
       <div className="container coins__container">
