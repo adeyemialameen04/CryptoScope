@@ -1,0 +1,28 @@
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.img__container img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.newsItem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsItem-body h1 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.newsItem-body small {
+  font-weight: 100;
+  color: #6900ff;
+}

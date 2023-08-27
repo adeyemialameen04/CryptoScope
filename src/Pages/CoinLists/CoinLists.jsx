@@ -2,7 +2,7 @@ import axios from "axios";
 import "./coinLists.css";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Coin from "../Coin/Coin";
+import Coin from "../../Components/Coin/Coin";
 
 const CoinLists = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,10 +19,6 @@ const CoinLists = () => {
   };
 
   const { data: coins, isLoading, isError, error } = useQuery(["coins"], getCoins);
-
-  useEffect(() => {
-    getNews();
-  }, []);
 
   const searchedCoins = coins && coins.filter(coin => {
     return coin.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -62,6 +58,7 @@ const CoinLists = () => {
       }}>Loading...</h1>
     );
   }
+
   if (isError) {
     return (
       <h1 className="container" style={{
@@ -73,20 +70,6 @@ const CoinLists = () => {
       }}>Error fetching coins {error}...</h1>
     );
   }
-
-  const getNews = async () => {
-    try {
-      const currentDate = new Date();
-      const toDate = currentDate.getTime(); // Current timestamp in milliseconds
-      const fromDate = toDate - 24 * 60 * 60 * 1000; // Subtract 24 hours (86400000 milliseconds)
-
-      const response = await axios.get(`https://api.coinstats.app/public/v1/news?skip=0&limit=20&toDate=${toDate}&fromDate=${fromDate}`);
-      const data = await response.data;
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <main>
