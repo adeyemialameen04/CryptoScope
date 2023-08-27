@@ -1,7 +1,7 @@
 .header__container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   /* height: 4rem; */
   padding-block: 2rem;
   margin-bottom: 1rem;
@@ -15,4 +15,16 @@
 
 .header__container h1 span {
   color: #6900ff;
+}
+
+.header__container div {
+  display: flex;
+  gap: .7rem;
+}
+
+.header__container a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 200;
 }
